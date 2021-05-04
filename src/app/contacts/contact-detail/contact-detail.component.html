@@ -1,34 +1,26 @@
 <div class="row">
-  <a href="#" class="clearfix" *ngFor="let contact of contacts" style="color: black; text-decoration: none;">
-
-    <div class="panel panel-default">
-      <div class="panel-heading clearfix">
-        <div>
-          <h4 class="list-group-item-heading">
-            {{contact.name}}
-          </h4>
-        </div>
-        <span class="pull-left">
-          <img
-          [src]="contact.imageUrl"
-          alt="{{contact.name}}"
-          class="img-responsive"
-          style="max-width: 80px;">
-        </span>
-        <span class="pull-right">
-          <button class="btn btn-primary" style="margin:10px;">
-            Edit
-          </button>
-          <button class="btn btn-danger">
-            Delete
-          </button>
-        </span>
+  <div class="panel panel-default">
+    <div class="panel-heading clearfix">
+      <div>
+        <h1 class="list-group-item-heading">
+          {{contact?.name}}
+        </h1>
       </div>
-      <div class="panel-body">
-        <p><b>Email:</b> {{contact.email}}</p>
-        <p><b>Phone:</b> {{contact.phone}}</p>
-      </div>
+      <span class="pull-left">
+        <img [src]="contact?.imageUrl" alt="{{contact?.name}}" class="img-responsive" style="max-width: 80px;">
+      </span>
+      <span class="pull-right">
+        <button class="btn btn-primary" style="margin:10px;">
+          Edit
+        </button>
+        <button class="btn btn-danger">
+          Delete
+        </button>
+      </span>
     </div>
-  </a>
-
+    <div class="panel-body">
+      <p><b>Email:</b> {{contact?.email}}</p>
+      <p><b>Phone:</b> {{contact?.phone}}</p>
+    </div>
+  </div>
 </div>
