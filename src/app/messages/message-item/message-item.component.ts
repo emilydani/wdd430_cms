@@ -9,8 +9,10 @@ import { Message } from '../message.model';
 export class MessageItemComponent implements OnInit {
   @Input() message: Message;
   constructor() { }
+  //Why put it here
 
   ngOnInit(): void {
   }
+  //instead of here
 
 }
