@@ -1,6 +1,9 @@
 import { Message } from "@angular/compiler/src/i18n/i18n_ast";
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
+import { ContactDetailComponent } from "./contacts/contact-detail/contact-detail.component";
+import { ContactEditComponent } from "./contacts/contact-edit/contact-edit.component";
+import { ContactItemComponent } from "./contacts/contact-list/contact-item/contact-item.component";
 import { ContactsComponent } from "./contacts/contacts.component";
 import { DocumentDetailComponent } from "./documents/document-detail/document-detail.component";
 import { DocumentEditComponent } from "./documents/document-edit/document-edit.component";
@@ -15,7 +18,12 @@ const appRoutes: Routes = [
     {path: ':id/edit', component: DocumentEditComponent}
   ]},
   {path: 'messages', component: MessageListComponent},
-  {path: 'contacts', component: ContactsComponent}
+  {path: 'contacts', component: ContactsComponent,
+  children: [
+    {path: 'new', component: ContactItemComponent},
+    {path: ':id', component: ContactDetailComponent},
+    {path: ':id/edit', component: ContactEditComponent}
+  ]}
 ]
 
 @NgModule({
