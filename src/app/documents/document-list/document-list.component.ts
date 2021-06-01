@@ -1,4 +1,5 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit, OnDestroy} from '@angular/core';
+import { Subscription } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Document } from '../document.model';
 import { DocumentService } from '../document.service';
@@ -8,8 +9,9 @@ import { DocumentService } from '../document.service';
   templateUrl: './document-list.component.html',
   styleUrls: ['./document-list.component.css']
 })
-export class DocumentListComponent implements OnInit {
+export class DocumentListComponent implements OnInit, OnDestroy {
   documents : Document[];
+  private subscription: Subscription;
 
   constructor(
     private documentService: DocumentService,
@@ -17,8 +19,8 @@ export class DocumentListComponent implements OnInit {
     private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.documents=this.documentService.getDocuments();
-    this.documentService.documentChangedEvent
+    this.documents = this.documentService.getDocuments();
+    this.subscription = this.documentService.documentListChangedEvent
       .subscribe(
         (documents: Document[]) => {
           this.documents = documents;
@@ -26,6 +28,8 @@ export class DocumentListComponent implements OnInit {
       )
   }
 
-
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
+  }
 
 }
