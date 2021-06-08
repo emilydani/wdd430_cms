@@ -7,11 +7,11 @@
         </h1>
       </div>
       <span class="pull-left">
-        <img [src]="contact?.imageUrl" alt="{{contact?.name}}" class="img-responsive" style="max-width: 80px;">
+        <img [src]="contact?.imagePath" alt="{{contact?.name}}" class="img-responsive" style="max-width: 80px;">
       </span>
       <span class="pull-right">
         <a class="btn btn-primary"
-        [routerLink]="[{id: contact.id}, 'edit']"
+        (click)="onEditContact()"
         style="margin:10px;">
         Edit</a>
 

@@ -20,6 +20,7 @@ export class ContactListComponent implements OnInit {
       .subscribe(
         (contacts: Contact[]) => {
           this.contacts = contacts;
+          console.log(contacts);
         }
       )
 
