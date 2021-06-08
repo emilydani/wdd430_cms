@@ -9,8 +9,13 @@
       </div>
       <div class="panel-body">
         <cms-contact-item
-        *ngFor="let contactEl of contacts; let i = index, let contact of contacts"
-        [contact]="contactEl" [index]="i">
+        *ngFor="let contactEl of contacts;
+        let i = index, let contact of contacts"
+        [contact]="contactEl"
+        dnd-draggable
+        [dragEnabled]="true"
+        [dragData]="contactEl"
+        [dropZones]="['contactGroup']">
         </cms-contact-item>
       </div>
     </div>
