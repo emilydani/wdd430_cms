@@ -34,9 +34,9 @@ export class ContactEditComponent implements OnInit {
         }
         this.editMode = true;
         this.contact = JSON.parse(JSON.stringify(this.originalContact));
-        if (this.contact.group) {
-          this.groupContacts = this.contact.group;
-        }
+        // if (this.contact.group) {
+        //   this.groupContacts = this.contact.group;
+        // }
       }
     });
   }
@@ -54,7 +54,7 @@ export class ContactEditComponent implements OnInit {
     if (this.editMode) {
       this.contactService.updateContact(this.originalContact, newContact);
     } else {
-      this.contactService.addcontact(newContact);
+      this.contactService.addContact(newContact);
     }
     this.router.navigate(['/contacts'], { relativeTo: this.route });
   }

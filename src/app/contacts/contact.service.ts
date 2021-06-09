@@ -21,7 +21,7 @@ export class ContactService {
     return this.contacts.slice();
   }
 
-  getContact(id: number) {
+  getContact(id: string) {
     for (let contact of this.contacts) {
       if (contact.id === id) {
         return contact;
@@ -33,7 +33,7 @@ export class ContactService {
   getMaxId(): number {
     let maxId: number = 0;
     for (let contact of this.contacts) {
-      let currentId: number = contact.id;
+      let currentId: number = +contact.id;
       if (currentId > maxId) {
         maxId = currentId;
       }
@@ -41,12 +41,12 @@ export class ContactService {
     return maxId;
   }
 
-  addcontact(newContact: Contact) {
+  addContact(newContact: Contact) {
     if (!newContact) {
       return;
     }
     this.maxContactId++;
-    newContact.id = this.maxContactId;
+    newContact.id = this.maxContactId.toString();
     this.contacts.push(newContact);
     this.contactListChangedEvent.next(this.contacts.slice());
   }

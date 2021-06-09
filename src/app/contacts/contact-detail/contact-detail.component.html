@@ -11,7 +11,7 @@
       </span>
       <span class="pull-right">
         <a class="btn btn-primary"
-        (click)="onEditContact()"
+        [routerLink]="[{ id: contact.id}, 'edit']"
         style="margin:10px;">
         Edit</a>
 
