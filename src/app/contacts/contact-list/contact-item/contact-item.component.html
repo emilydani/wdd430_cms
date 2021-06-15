@@ -10,8 +10,8 @@ class="list-group-item clearfix"
   </div>
   <span class="pull-right">
     <img
-      *ngIf="contact?.imagePath"
-      [src]="contact?.imagePath"
+      *ngIf="contact?.imageUrl"
+      [src]="contact?.imageUrl"
       alt="{{ contact?.name }}"
       class="img-responsive"
       style="max-height: 70px;">
