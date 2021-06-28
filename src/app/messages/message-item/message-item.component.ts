@@ -1,5 +1,4 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
-import { Contact } from 'src/app/contacts/contact.model';
 import { ContactService } from 'src/app/contacts/contact.service';
 import { Message } from '../message.model';
 
@@ -8,6 +7,7 @@ import { Message } from '../message.model';
   templateUrl: './message-item.component.html',
   styleUrls: ['./message-item.component.css']
 })
+
 export class MessageItemComponent implements OnInit {
   @Input() message: Message;
   messageSender: string;

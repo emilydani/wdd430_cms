@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild, EventEmitter, Output  } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Message } from '../message.model';
 import { MessageService } from '../message.service';
 
@@ -8,27 +8,26 @@ import { MessageService } from '../message.service';
   styleUrls: ['./message-edit.component.css']
 })
 export class MessageEditComponent implements OnInit {
-  @ViewChild('subject', {static: false}) subjectInputRef: ElementRef;
-  @ViewChild('msgText', {static: false}) msgTextInputRef: ElementRef;
-  currentSender: string = 'Bob';
 
-
+  currentSender: string = '5fc5c0543177278302829daa'
+  @ViewChild('subject', { static: false }) subjectInputRef: ElementRef;
+  @ViewChild('msgText', { static: false }) msgTextInputRef: ElementRef;
 
   constructor(private messageService: MessageService) { }
 
   ngOnInit(): void {
   }
 
-  onSendMessage(){
+  onSendMessage() {
     const subject = this.subjectInputRef.nativeElement.value;
     const msgText = this.msgTextInputRef.nativeElement.value;
-    const newMessage = new Message('-1', subject, msgText, this.currentSender);
-    this.messageService.addMessage(newMessage)
+    const newMessage = new Message('', subject, msgText, this.currentSender, null);
+    this.messageService.addMessage(newMessage);
   }
 
-  onClear(){
+  onClear() {
     this.subjectInputRef.nativeElement.value = '';
-    this.msgTextInputRef.nativeElement.value ='';
+    this.msgTextInputRef.nativeElement.value = '';
   }
 
 }

@@ -49,8 +49,10 @@ export class ContactEditComponent implements OnInit {
       value.email,
       value.phone,
       value.imageUrl,
+      null,
       null
     );
+
     if (this.editMode) {
       this.contactService.updateContact(this.originalContact, newContact);
     } else {
